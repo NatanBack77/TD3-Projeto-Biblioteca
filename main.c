@@ -71,18 +71,7 @@ void adicionarLivro() {
     }
 }
    
-void alugarLivro(char *titulo, char *locador, int *diasRestantes, int *locado) {
-    if (*locado == 0) {
-        printf("Digite o nome do locador: ");
-        scanf("%s", locador);
-        printf("Digite o número de dias restantes: ");
-        scanf("%d", diasRestantes);
-        *locado = 1;
-        printf("Livro alugado com sucesso!\n");
-    } else {
-        printf("Livro já alugado!\n");
-    }
-}
+void alugarLivro() {} 
 
 int main(){
     int opcao;
