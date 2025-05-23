@@ -25,6 +25,10 @@ Este projeto implementa um sistema para gerenciar o empréstimo, devolução e r
    - Usuário devolve o livro e informa o tempo de posse.
    - Se houver atraso, o sistema calcula a multa e informa o valor a ser pago.
 
+## Diagrama do Sistema
+
+![Diagrama do Sistema](image/diagrama.png)
+
 ## Regras de Negócio
 
 - O prazo de devolução pode ser renovado.

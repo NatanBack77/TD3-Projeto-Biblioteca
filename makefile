@@ -2,7 +2,7 @@
 CC = gcc
 CFLAGS = -Wall -g
 SRC = $(wildcard *.c)
-OUT = compiler
+OUT = output/compiler
 
 all: $(OUT)
 
