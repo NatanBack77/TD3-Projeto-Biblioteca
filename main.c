@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+// Livro 1
 char titulo1[50] = "";
 char locador1[50] = "";
 int diasRestantes1 = 0;
@@ -70,27 +71,43 @@ void adicionarLivro() {
         printf("Limite de livros atingido!\n");
     }
 }
-   
+
+void listar_livros() {
+    printf("\n--------------LIVROS--------------\n");
+    printf("%s\n", titulo1);
+    printf("%s\n", titulo2);
+    printf("%s\n", titulo3);
+    printf("%s\n", titulo4);
+    printf("%s\n", titulo5);
+    printf("----------------------------------\n");
+    getchar();
+    printf("PRESSIONE ENTER PARA VOLTAR AO MENU: ");
+    getchar();
+}
+
 void alugarLivro() {} 
 
 int main(){
     int opcao;
     do {
-        printf("Menu:\n");
+        printf("\n---------------MENU---------------\n");
         printf("1. Adicionar livro\n");
-        printf("2. Alugar livro 2\n");
+        printf("2. Listar livros\n");
         printf("3. Alugar livro 3\n");
         printf("4. Alugar livro 4\n");
         printf("5. Alugar livro 5\n");
         printf("6. Sair\n");
+        printf("----------------------------------\n");
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
+
+
         switch (opcao) {
             case 1:
                 adicionarLivro();
                 break;
             case 2:
-                alugarLivro(titulo2, locador2, &diasRestantes2, &locado2);
+                listar_livros();
                 break;
             case 3:
                 alugarLivro(titulo3, locador3, &diasRestantes3, &locado3);
