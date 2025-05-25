@@ -35,7 +35,7 @@ void adicionarLivro() {
     char titulo[50];
     int diasDevolucao;
     printf("Digite o título do livro:  \n");
-    getchar(); // Limpa o buffer
+    getchar();
     fgets(titulo, 50, stdin);
     size_t len = strlen(titulo);
     if (len > 0 && titulo[len-1] == '\n') titulo[len-1] = '\0';
