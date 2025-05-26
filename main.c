@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+int errosTentativasAlugar = 0;
+
 char titulo1[50] = "";
 char locador1[50] = "";
 int diasRestantes1 = 0;
@@ -33,12 +35,12 @@ int locado5 = 0;
 void adicionarLivro() {
     char titulo[50];
     int diasDevolucao;
-    printf("Digite o tÃ­tulo do livro:  \n");
+    printf("Digite o título do livro:  \n");
     getchar(); // Limpa o buffer
     fgets(titulo, 50, stdin);
     size_t len = strlen(titulo);
     if (len > 0 && titulo[len-1] == '\n') titulo[len-1] = '\0';
-    printf("Digite o nÃºmero de dias para devoluÃ§Ã£o:  \n");
+    printf("Digite o número de dias para devolução:  \n");
     scanf("%d", &diasDevolucao);
 
     if(strlen(titulo1) == 0) {
@@ -71,43 +73,73 @@ void adicionarLivro() {
     }
 }
    
-void alugarLivro() {} 
+void alugarLivro(char titulo[], char locador[], int *diasRestantes, int *locado) {
+    if (strlen(titulo) == 0) {
+        printf("Erro: Nenhum livro cadastrado ainda. Por favor, adicione um livro primeiro.\n");
+        return;
+    }
+
+    if (*locado == 1) {
+        printf("Erro: O livro \"%s\" já está alugado por %s. Faltam %d dias.\n", titulo, locador, *diasRestantes);
+        errosTentativasAlugar++;
+        printf("Tentativas mal-sucedidas: %d\n", errosTentativasAlugar);
+        return;
+    }
+
+    getchar(); // limpar buffer
+    printf("Digite seu nome: ");
+    fgets(locador, 50, stdin);
+    size_t len = strlen(locador);
+    if (len > 0 && locador[len - 1] == '\n') locador[len - 1] = '\0';
+
+    printf("Digite a quantidade de dias para devolução: ");
+    scanf("%d", diasRestantes);
+
+    *locado = 1;
+
+    printf("Livro \"%s\" alugado com sucesso por %s por %d dias!\n", titulo, locador, *diasRestantes);
+} 
 
 int main(){
     int opcao;
     do {
-        printf("Menu:\n");
+        printf("\nMENU BIBLIOTECA:\n");
         printf("1. Adicionar livro\n");
-        printf("2. Alugar livro 2\n");
-        printf("3. Alugar livro 3\n");
-        printf("4. Alugar livro 4\n");
-        printf("5. Alugar livro 5\n");
-        printf("6. Sair\n");
-        printf("Escolha uma opÃ§Ã£o: ");
+        printf("2. Alugar Livro 1\n");
+        printf("3. Alugar Livro 2\n");
+        printf("4. Alugar Livro 3\n");
+        printf("5. Alugar Livro 4\n");
+        printf("6. Alugar Livro 5\n");
+        printf("7. Sair\n");
+        printf("Escolha uma opção: ");
         scanf("%d", &opcao);
+
         switch (opcao) {
             case 1:
                 adicionarLivro();
                 break;
             case 2:
-                alugarLivro(titulo2, locador2, &diasRestantes2, &locado2);
+                alugarLivro(titulo1, locador1, &diasRestantes1, &locado1);
                 break;
             case 3:
-                alugarLivro(titulo3, locador3, &diasRestantes3, &locado3);
+                alugarLivro(titulo2, locador2, &diasRestantes2, &locado2);
                 break;
             case 4:
-                alugarLivro(titulo4, locador4, &diasRestantes4, &locado4);
+                alugarLivro(titulo3, locador3, &diasRestantes3, &locado3);
                 break;
             case 5:
-                alugarLivro(titulo5, locador5, &diasRestantes5, &locado5);
+                alugarLivro(titulo4, locador4, &diasRestantes4, &locado4);
                 break;
             case 6:
+                alugarLivro(titulo5, locador5, &diasRestantes5, &locado5);
+                break;
+            case 7:
                 printf("Saindo...\n");
                 break;
             default:
-                printf("OpÃ§Ã£o invÃ¡lida!\n");
+                printf("Opção inválida!\n");
         }
-    } while (opcao != 6);
+    } while (opcao != 7);
 
     return 0;
     
