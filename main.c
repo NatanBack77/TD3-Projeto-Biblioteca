@@ -74,11 +74,11 @@ void adicionarLivro() {
 
 void listar_livros() {
     printf("\n--------------LIVROS--------------\n");
-    printf("%s\n", titulo1);
-    printf("%s\n", titulo2);
-    printf("%s\n", titulo3);
-    printf("%s\n", titulo4);
-    printf("%s\n", titulo5);
+    printf("1- %s\n", titulo1);
+    printf("2- %s\n", titulo2);
+    printf("3- %s\n", titulo3);
+    printf("4- %s\n", titulo4);
+    printf("5- %s\n", titulo5);
     printf("----------------------------------\n");
     getchar();
     printf("PRESSIONE ENTER PARA VOLTAR AO MENU: ");
@@ -93,9 +93,9 @@ int main(){
         printf("\n---------------MENU---------------\n");
         printf("1. Adicionar livro\n");
         printf("2. Listar livros\n");
-        printf("3. Alugar livro 3\n");
-        printf("4. Alugar livro 4\n");
-        printf("5. Alugar livro 5\n");
+        printf("3. Alugar livro\n");
+        printf("4. Devolver livro\n");
+        printf("5. Renovar livro\n");
         printf("6. Sair\n");
         printf("----------------------------------\n");
         printf("Escolha uma opção: ");
