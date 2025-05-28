@@ -1,0 +1,59 @@
+# Compiled object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.app
+*.bin
+*.elf
+
+# Debugging files
+*.dSYM/
+*.stackdump
+core
+core.*
+
+# Build directories
+/build/
+/bin/
+/debug/
+/dist/
+/output/
+
+# Temporary files
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Dependency files
+*.d
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Autotools
+configure
+config.h
+config.log
+config.status
+autom4te.cache/
+aclocal.m4
+compile
+depcomp
+install-sh
+ltmain.sh
+missing
+Makefile.in
+
+# IDE/editor specific
+.vscode/
+.idea/
+*.code-workspace
+*.DS_Store

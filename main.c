@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 int errosTentativasAlugar = 0;
 
 char titulo1[50] = "";
@@ -36,7 +37,7 @@ void adicionarLivro() {
     char titulo[50];
     int diasDevolucao;
     printf("Digite o título do livro:  \n");
-    getchar(); // Limpa o buffer
+    getchar();
     fgets(titulo, 50, stdin);
     size_t len = strlen(titulo);
     if (len > 0 && titulo[len-1] == '\n') titulo[len-1] = '\0';
@@ -100,26 +101,43 @@ void alugarLivro(char titulo[], char locador[], int *diasRestantes, int *locado)
     printf("Livro \"%s\" alugado com sucesso por %s por %d dias!\n", titulo, locador, *diasRestantes);
 } 
 
+void listar_livros() {
+    printf("\n--------------LIVROS--------------\n");
+    printf("%s\n", titulo1);
+    printf("%s\n", titulo2);
+    printf("%s\n", titulo3);
+    printf("%s\n", titulo4);
+    printf("%s\n", titulo5);
+    printf("----------------------------------\n");
+    getchar();
+    printf("PRESSIONE ENTER PARA VOLTAR AO MENU: ");
+    getchar();
+}
+
+void alugarLivro () {} 
+
 int main(){
     int opcao;
     do {
-        printf("\nMENU BIBLIOTECA:\n");
+
+        printf("\n---------------MENU---------------\n");
         printf("1. Adicionar livro\n");
-        printf("2. Alugar Livro 1\n");
-        printf("3. Alugar Livro 2\n");
-        printf("4. Alugar Livro 3\n");
-        printf("5. Alugar Livro 4\n");
-        printf("6. Alugar Livro 5\n");
-        printf("7. Sair\n");
-        printf("Escolha uma opção: ");
+        printf("2. Listar livros\n");
+        printf("3. Alugar livro 3\n");
+        printf("4. Alugar livro 4\n");
+        printf("5. Alugar livro 5\n");
+        printf("6. Sair\n");
+        printf("----------------------------------\n");
+        printf("Escolha uma opÃ§Ã£o: ");
         scanf("%d", &opcao);
+
 
         switch (opcao) {
             case 1:
                 adicionarLivro();
                 break;
             case 2:
-                alugarLivro(titulo1, locador1, &diasRestantes1, &locado1);
+                listar_livros();
                 break;
             case 3:
                 alugarLivro(titulo2, locador2, &diasRestantes2, &locado2);
