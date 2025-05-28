@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-
-int errosTentativasAlugar = 0;
-
+// Livro 1
 char titulo1[50] = "";
 char locador1[50] = "";
 int diasRestantes1 = 0;
@@ -32,6 +30,15 @@ char titulo5[50] = "";
 char locador5[50] = "";
 int diasRestantes5 = 0;
 int locado5 = 0;
+
+int temNumero(const char texto[]) {
+    for (int i = 0; texto[i] != '\0'; i++) {
+        if (texto[i] >= '0' && texto[i] <= '9') {
+            return 1; // Tem número
+        }
+    }
+    return 0; // Não tem número
+}
 
 void adicionarLivro() {
     char titulo[50];
@@ -73,33 +80,6 @@ void adicionarLivro() {
         printf("Limite de livros atingido!\n");
     }
 }
-   
-void alugarLivro(char titulo[], char locador[], int *diasRestantes, int *locado) {
-    if (strlen(titulo) == 0) {
-        printf("Erro: Nenhum livro cadastrado ainda. Por favor, adicione um livro primeiro.\n");
-        return;
-    }
-
-    if (*locado == 1) {
-        printf("Erro: O livro \"%s\" já está alugado por %s. Faltam %d dias.\n", titulo, locador, *diasRestantes);
-        errosTentativasAlugar++;
-        printf("Tentativas mal-sucedidas: %d\n", errosTentativasAlugar);
-        return;
-    }
-
-    getchar(); // limpar buffer
-    printf("Digite seu nome: ");
-    fgets(locador, 50, stdin);
-    size_t len = strlen(locador);
-    if (len > 0 && locador[len - 1] == '\n') locador[len - 1] = '\0';
-
-    printf("Digite a quantidade de dias para devolução: ");
-    scanf("%d", diasRestantes);
-
-    *locado = 1;
-
-    printf("Livro \"%s\" alugado com sucesso por %s por %d dias!\n", titulo, locador, *diasRestantes);
-} 
 
 void listar_livros() {
     printf("\n--------------LIVROS--------------\n");
@@ -114,12 +94,148 @@ void listar_livros() {
     getchar();
 }
 
-void alugarLivro () {} 
+void alugarLivro() {
+    int escolha;
+    listar_livros();
+
+    printf("Escolha o número do livro que deseja alugar: ");
+    scanf("%d", &escolha);
+
+    char nomeLocador[50];
+
+    switch (escolha) {
+        case 1:
+            if(strlen(titulo1) == 0) {
+                printf("Livro não cadastrado!\n");
+                break;
+            }
+            if(locado1 == 1) {
+                printf("Esse livro já está alugado!\n");
+                break;
+            }
+            getchar();
+            do {
+                printf("Digite seu nome: ");
+                fgets(nomeLocador, 50, stdin);
+                size_t len1 = strlen(nomeLocador);
+                if (len1 > 0 && nomeLocador[len1-1] == '\n') nomeLocador[len1-1] = '\0';
+                if (temNumero(nomeLocador)) {
+                    printf("Nome inválido! Não pode conter números.\n");
+                }
+            } while (temNumero(nomeLocador));
+            strcpy(locador1, nomeLocador);
+            locado1 = 1;
+            printf("Livro '%s' alugado por '%s'. Prazo de %d dias.\n", titulo1, locador1, diasRestantes1);
+            break;
+
+        case 2:
+            if(strlen(titulo2) == 0) {
+                printf("Livro não cadastrado!\n");
+                break;
+            }
+            if(locado2 == 1) {
+                printf("Esse livro já está alugado!\n");
+                break;
+            }
+            getchar();
+            do {
+                printf("Digite seu nome: ");
+                fgets(nomeLocador, 50, stdin);
+                size_t len2 = strlen(nomeLocador);
+                if (len2 > 0 && nomeLocador[len2-1] == '\n') nomeLocador[len2-1] = '\0';
+                if (temNumero(nomeLocador)) {
+                    printf("Nome inválido! Não pode conter números.\n");
+                }
+            } while (temNumero(nomeLocador));
+            strcpy(locador2, nomeLocador);
+            locado2 = 1;
+            printf("Livro '%s' alugado por '%s'. Prazo de %d dias.\n", titulo2, locador2, diasRestantes2);
+            break;
+
+        case 3:
+            if(strlen(titulo3) == 0) {
+                printf("Livro não cadastrado!\n");
+                break;
+            }
+            if(locado3 == 1) {
+                printf("Esse livro já está alugado!\n");
+                break;
+            }
+            getchar();
+            do {
+                printf("Digite seu nome: ");
+                fgets(nomeLocador, 50, stdin);
+                size_t len3 = strlen(nomeLocador);
+                if (len3 > 0 && nomeLocador[len3-1] == '\n') nomeLocador[len3-1] = '\0';
+                if (temNumero(nomeLocador)) {
+                    printf("Nome inválido! Não pode conter números.\n");
+                }
+            } while (temNumero(nomeLocador));
+            strcpy(locador3, nomeLocador);
+            locado3 = 1;
+            printf("Livro '%s' alugado por '%s'. Prazo de %d dias.\n", titulo3, locador3, diasRestantes3);
+            break;
+
+        case 4:
+            if(strlen(titulo4) == 0) {
+                printf("Livro não cadastrado!\n");
+                break;
+            }
+            if(locado4 == 1) {
+                printf("Esse livro já está alugado!\n");
+                break;
+            }
+            getchar();
+            do {
+                printf("Digite seu nome: ");
+                fgets(nomeLocador, 50, stdin);
+                size_t len4 = strlen(nomeLocador);
+                if (len4 > 0 && nomeLocador[len4-1] == '\n') nomeLocador[len4-1] = '\0';
+                if (temNumero(nomeLocador)) {
+                    printf("Nome inválido! Não pode conter números.\n");
+                }
+            } while (temNumero(nomeLocador));
+            strcpy(locador4, nomeLocador);
+            locado4 = 1;
+            printf("Livro '%s' alugado por '%s'. Prazo de %d dias.\n", titulo4, locador4, diasRestantes4);
+            break;
+
+        case 5:
+            if(strlen(titulo5) == 0) {
+                printf("Livro não cadastrado!\n");
+                break;
+            }
+            if(locado5 == 1) {
+                printf("Esse livro já está alugado!\n");
+                break;
+            }
+            getchar();
+            do {
+                printf("Digite seu nome: ");
+                fgets(nomeLocador, 50, stdin);
+                size_t len5 = strlen(nomeLocador);
+                if (len5 > 0 && nomeLocador[len5-1] == '\n') nomeLocador[len5-1] = '\0';
+                if (temNumero(nomeLocador)) {
+                    printf("Nome inválido! Não pode conter números.\n");
+                }
+            } while (temNumero(nomeLocador));
+            strcpy(locador5, nomeLocador);
+            locado5 = 1;
+            printf("Livro '%s' alugado por '%s'. Prazo de %d dias.\n", titulo5, locador5, diasRestantes5);
+            break;
+
+        default:
+            printf("Opção inválida!\n");
+    }
+
+    printf("\nPRESSIONE ENTER PARA VOLTAR AO MENU PRINCIPAL...");
+    getchar();
+}
+
 
 int main(){
     int opcao;
     do {
-
         printf("\n---------------MENU---------------\n");
         printf("1. Adicionar livro\n");
         printf("2. Listar livros\n");
@@ -128,36 +244,34 @@ int main(){
         printf("5. Renovar livro\n");
         printf("6. Sair\n");
         printf("----------------------------------\n");
-        printf("Escolha uma opÃ§Ã£o: ");
+        printf("Escolha uma opção: ");
         scanf("%d", &opcao);
 
 
-        switch (opcao) {
-            case 1:
-                adicionarLivro();
-                break;
-            case 2:
-                listar_livros();
-                break;
-            case 3:
-                alugarLivro(titulo2, locador2, &diasRestantes2, &locado2);
-                break;
-            case 4:
-                alugarLivro(titulo3, locador3, &diasRestantes3, &locado3);
-                break;
-            case 5:
-                alugarLivro(titulo4, locador4, &diasRestantes4, &locado4);
-                break;
-            case 6:
-                alugarLivro(titulo5, locador5, &diasRestantes5, &locado5);
-                break;
-            case 7:
-                printf("Saindo...\n");
-                break;
-            default:
-                printf("Opção inválida!\n");
-        }
-    } while (opcao != 7);
+    switch (opcao) {
+    case 1:
+        adicionarLivro();
+        break;
+    case 2:
+        listar_livros();
+        break;
+    case 3:
+        alugarLivro();
+        break;
+    case 4:
+        printf("Não tem a função de devolver livro (galego/natan)");
+        break;
+    case 5:
+        printf("Não tem função de renovar livro (galego/natan)");
+        break;
+    case 6:
+        printf("Saindo...\n");
+        break;
+    default:
+        printf("Opção inválida!\n");
+    }
+
+    } while (opcao != 6);
 
     return 0;
     
