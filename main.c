@@ -90,8 +90,6 @@ void listar_livros() {
     printf("5- %s\n", titulo5);
     printf("----------------------------------\n");
     getchar();
-    printf("PRESSIONE ENTER PARA VOLTAR AO MENU: ");
-    getchar();
 }
 
 void alugarLivro() {
@@ -229,6 +227,7 @@ void alugarLivro() {
     }
 
     printf("\nPRESSIONE ENTER PARA VOLTAR AO MENU PRINCIPAL...");
+    getchar();
     getchar();
 }
 
