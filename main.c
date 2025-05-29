@@ -34,21 +34,21 @@ int locado5 = 0;
 int temNumero(const char texto[]) {
     for (int i = 0; texto[i] != '\0'; i++) {
         if (texto[i] >= '0' && texto[i] <= '9') {
-            return 1; // Tem n˙mero
+            return 1; // Tem n√∫mero
         }
     }
-    return 0; // N„o tem n˙mero
+    return 0; // N√£o tem n√∫mero
 }
 
 void adicionarLivro() {
     char titulo[50];
     int diasDevolucao;
-    printf("Digite o tÌtulo do livro:  \n");
+    printf("Digite o t√≠tulo do livro:  \n");
     getchar();
     fgets(titulo, 50, stdin);
     size_t len = strlen(titulo);
     if (len > 0 && titulo[len-1] == '\n') titulo[len-1] = '\0';
-    printf("Digite o n˙mero de dias para devoluÁ„o:  \n");
+    printf("Digite o n√∫mero de dias para devolu√ß√£o:  \n");
     scanf("%d", &diasDevolucao);
 
     if(strlen(titulo1) == 0) {
@@ -96,7 +96,7 @@ void alugarLivro() {
     int escolha;
     listar_livros();
 
-    printf("Escolha o n˙mero do livro que deseja alugar: ");
+    printf("Escolha o n√∫mero do livro que deseja alugar: ");
     scanf("%d", &escolha);
 
     char nomeLocador[50];
@@ -104,11 +104,11 @@ void alugarLivro() {
     switch (escolha) {
         case 1:
             if(strlen(titulo1) == 0) {
-                printf("Livro n„o cadastrado!\n");
+                printf("Livro n√£o cadastrado!\n");
                 break;
             }
             if(locado1 == 1) {
-                printf("Esse livro j· est· alugado!\n");
+                printf("Esse livro j√° est√° alugado!\n");
                 break;
             }
             getchar();
@@ -118,7 +118,7 @@ void alugarLivro() {
                 size_t len1 = strlen(nomeLocador);
                 if (len1 > 0 && nomeLocador[len1-1] == '\n') nomeLocador[len1-1] = '\0';
                 if (temNumero(nomeLocador)) {
-                    printf("Nome inv·lido! N„o pode conter n˙meros.\n");
+                    printf("Nome inv√°lido! N√£o pode conter n√∫meros.\n");
                 }
             } while (temNumero(nomeLocador));
             strcpy(locador1, nomeLocador);
@@ -128,11 +128,11 @@ void alugarLivro() {
 
         case 2:
             if(strlen(titulo2) == 0) {
-                printf("Livro n„o cadastrado!\n");
+                printf("Livro n√£o cadastrado!\n");
                 break;
             }
             if(locado2 == 1) {
-                printf("Esse livro j· est· alugado!\n");
+                printf("Esse livro j√° est√° alugado!\n");
                 break;
             }
             getchar();
@@ -142,7 +142,7 @@ void alugarLivro() {
                 size_t len2 = strlen(nomeLocador);
                 if (len2 > 0 && nomeLocador[len2-1] == '\n') nomeLocador[len2-1] = '\0';
                 if (temNumero(nomeLocador)) {
-                    printf("Nome inv·lido! N„o pode conter n˙meros.\n");
+                    printf("Nome inv√°lido! N√£o pode conter n√∫meros.\n");
                 }
             } while (temNumero(nomeLocador));
             strcpy(locador2, nomeLocador);
@@ -152,11 +152,11 @@ void alugarLivro() {
 
         case 3:
             if(strlen(titulo3) == 0) {
-                printf("Livro n„o cadastrado!\n");
+                printf("Livro n√£o cadastrado!\n");
                 break;
             }
             if(locado3 == 1) {
-                printf("Esse livro j· est· alugado!\n");
+                printf("Esse livro j√° est√° alugado!\n");
                 break;
             }
             getchar();
@@ -166,7 +166,7 @@ void alugarLivro() {
                 size_t len3 = strlen(nomeLocador);
                 if (len3 > 0 && nomeLocador[len3-1] == '\n') nomeLocador[len3-1] = '\0';
                 if (temNumero(nomeLocador)) {
-                    printf("Nome inv·lido! N„o pode conter n˙meros.\n");
+                    printf("Nome inv√°lido! N√£o pode conter n√∫meros.\n");
                 }
             } while (temNumero(nomeLocador));
             strcpy(locador3, nomeLocador);
@@ -176,11 +176,11 @@ void alugarLivro() {
 
         case 4:
             if(strlen(titulo4) == 0) {
-                printf("Livro n„o cadastrado!\n");
+                printf("Livro n√£o cadastrado!\n");
                 break;
             }
             if(locado4 == 1) {
-                printf("Esse livro j· est· alugado!\n");
+                printf("Esse livro j√° est√° alugado!\n");
                 break;
             }
             getchar();
@@ -190,7 +190,7 @@ void alugarLivro() {
                 size_t len4 = strlen(nomeLocador);
                 if (len4 > 0 && nomeLocador[len4-1] == '\n') nomeLocador[len4-1] = '\0';
                 if (temNumero(nomeLocador)) {
-                    printf("Nome inv·lido! N„o pode conter n˙meros.\n");
+                    printf("Nome inv√°lido! N√£o pode conter n√∫meros.\n");
                 }
             } while (temNumero(nomeLocador));
             strcpy(locador4, nomeLocador);
@@ -200,11 +200,11 @@ void alugarLivro() {
 
         case 5:
             if(strlen(titulo5) == 0) {
-                printf("Livro n„o cadastrado!\n");
+                printf("Livro n√£o cadastrado!\n");
                 break;
             }
             if(locado5 == 1) {
-                printf("Esse livro j· est· alugado!\n");
+                printf("Esse livro j√° est√° alugado!\n");
                 break;
             }
             getchar();
@@ -214,7 +214,7 @@ void alugarLivro() {
                 size_t len5 = strlen(nomeLocador);
                 if (len5 > 0 && nomeLocador[len5-1] == '\n') nomeLocador[len5-1] = '\0';
                 if (temNumero(nomeLocador)) {
-                    printf("Nome inv·lido! N„o pode conter n˙meros.\n");
+                    printf("Nome inv√°lido! N√£o pode conter n√∫meros.\n");
                 }
             } while (temNumero(nomeLocador));
             strcpy(locador5, nomeLocador);
@@ -223,7 +223,7 @@ void alugarLivro() {
             break;
 
         default:
-            printf("OpÁ„o inv·lida!\n");
+            printf("Op√ß√£o inv√°lida!\n");
     }
 
     printf("\nPRESSIONE ENTER PARA VOLTAR AO MENU PRINCIPAL...");
@@ -243,7 +243,7 @@ int main(){
         printf("5. Renovar livro\n");
         printf("6. Sair\n");
         printf("----------------------------------\n");
-        printf("Escolha uma opÁ„o: ");
+        printf("Escolha uma op√ß√£o: ");
         scanf("%d", &opcao);
 
 
@@ -258,16 +258,16 @@ int main(){
         alugarLivro();
         break;
     case 4:
-        printf("N„o tem a funÁ„o de devolver livro (galego/natan)");
+        printf("N√£o tem a fun√ß√£o de devolver livro (galego/natan)");
         break;
     case 5:
-        printf("N„o tem funÁ„o de renovar livro (galego/natan)");
+        printf("N√£o tem fun√ß√£o de renovar livro (galego/natan)");
         break;
     case 6:
         printf("Saindo...\n");
         break;
     default:
-        printf("OpÁ„o inv·lida!\n");
+        printf("Op√ß√£o inv√°lida!\n");
     }
 
     } while (opcao != 6);
