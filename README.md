@@ -1,53 +1,40 @@
-# Sistema de Gerenciamento de Empréstimo de Livros
+# Sistema de Biblioteca em C
 
-Este projeto implementa um sistema para gerenciar o empréstimo, devolução e renovação de livros em uma biblioteca, incluindo controle de prazos e aplicação de multas por atraso.
+<img src="image/diagrama.png" alt="Diagrama do Sistema" width="600"/>
 
-## Funcionalidades
+Um sistema simples e didático para gerenciamento de biblioteca, feito em C, sem uso de arrays ou ponteiros para os livros. Cada livro é representado por variáveis separadas, facilitando o entendimento do fluxo e da lógica.
 
-- **Alugar Livros**
-  - Permite ao usuário realizar o empréstimo de livros.
-- **Devolução de Livros**
-  - Usuário devolve livros emprestados.
-  - O sistema solicita a quantidade de dias que o livro ficou locado.
-- **Renovar Livros**
-  - Possibilita ao usuário renovar o prazo de devolução, adicionando mais dias ao empréstimo.
-- **Controle de Prazo**
-  - Ao devolver um livro, o usuário informa quantos dias ficou com o livro.
-  - Caso ultrapasse o prazo, o sistema calcula e informa o valor da multa com base nos dias em atraso.
+## 🚀 Funcionalidades
 
-## Fluxo do Sistema
+- **Adicionar livro**: Cadastro de até 5 livros, com verificação automática de duplicidade de título.
+- **Listar livros**: Visualize rapidamente todos os livros cadastrados.
+- **Alugar livro**: Alugue um livro se ele estiver disponível e o usuário não possuir multas. Caso o livro já esteja locado, o sistema informa o nome do locador e os dias restantes.
+- **Devolver livro**: Devolva um livro. Se houver atraso, o sistema gera uma multa para o locador.
+- **Renovar livro**: Renove o prazo de devolução de um livro locado.
+- **Pagar multa**: Veja e quite multas pendentes de todos os locadores.
+- **Consulta rápida**: Ao tentar alugar, se o livro estiver locado, o sistema mostra o nome do locador e os dias restantes.
 
-1. **Aluguel**
-   - Usuário seleciona o livro e realiza o empréstimo.
-2. **Renovação**
-   - Usuário pode solicitar a renovação, aumentando o prazo de devolução.
-3. **Devolução**
-   - Usuário devolve o livro e informa o tempo de posse.
-   - Se houver atraso, o sistema calcula a multa e informa o valor a ser pago.
+## 📋 Regras de Negócio
 
-## Diagrama do Sistema
+- Não é possível cadastrar dois livros com o mesmo título.
+- Não é possível alugar um livro se o usuário estiver multado em qualquer livro.
+- Não é possível alugar um livro já locado (o sistema mostra o locador e dias restantes).
+- Multas são geradas por atraso na devolução e devem ser pagas antes de novo aluguel.
 
-![Diagrama do Sistema](image/diagrama.png)
+## 🛠️ Como compilar e executar
 
-## Regras de Negócio
+```sh
+gcc -Wall -g main.c -o main
+./main
+```
 
-- O prazo de devolução pode ser renovado.
-- O valor da multa é proporcional à quantidade de dias em atraso.
-- O usuário é informado do valor da multa no momento da devolução, caso haja atraso.
+## 💡 Observações
 
----
-
-> **Diagrama de requisitos**  
-> - Alugar Livros → Renovar Livros → Adicionar mais dias para devolução  
-> - Devolução Livros → Informar quantidade de dias locado → Se ultrapassar prazo, gerar multa e informar valor ao usuário
+- O sistema **não utiliza arrays ou ponteiros** para armazenar os livros, apenas variáveis separadas para cada livro.
+- O controle de multas e locações é feito por variáveis separadas para cada livro.
+- O menu principal permite acessar todas as funções do sistema de forma intuitiva.
+- O projeto é ideal para estudos de lógica, controle de fluxo e manipulação de strings em C.
 
 ---
 
-## Como executar
-
-1. Compile o projeto usando o `makefile` fornecido.
-2. Execute o binário gerado para interagir com o sistema via terminal.
-
----
-
-Desenvolvido para fins acadêmicos.
+Atualizado em: 30/05/2025
