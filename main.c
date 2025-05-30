@@ -1,17 +1,23 @@
 #include <stdio.h>
 #include <string.h>
 
+#define VALOR_MULTA 5.0 // Valor da multa por dia de atraso
+
 // Livro 1
 char titulo1[50] = "";
 char locador1[50] = "";
 int diasRestantes1 = 0;
 int locado1 = 0;
+char nomemultado[50] = ""; // Nome do locador,caso seja multado
+
 
 // Livro 2
 char titulo2[50] = "";
 char locador2[50] = "";
 int diasRestantes2 = 0;
 int locado2 = 0;
+
+
 
 // Livro 3
 char titulo3[50] = "";
@@ -25,11 +31,14 @@ char locador4[50] = "";
 int diasRestantes4 = 0;
 int locado4 = 0;
 
+
 // Livro 5
 char titulo5[50] = "";
 char locador5[50] = "";
 int diasRestantes5 = 0;
 int locado5 = 0;
+
+
 
 int temNumero(const char texto[]) {
     for (int i = 0; texto[i] != '\0'; i++) {
@@ -108,7 +117,10 @@ void alugarLivro() {
                 break;
             }
             if(locado1 == 1) {
-                printf("Esse livro já está alugado!\n");
+                printf("Esse livro já está alugado por %s durante %d dia(s)\n\n", locador1, diasRestantes1);
+                printf("Você pode renovar o aluguel ou devolver o livro.\n");
+               
+                getchar();
                 break;
             }
             getchar();
@@ -119,6 +131,10 @@ void alugarLivro() {
                 if (len1 > 0 && nomeLocador[len1-1] == '\n') nomeLocador[len1-1] = '\0';
                 if (temNumero(nomeLocador)) {
                     printf("Nome inválido! Não pode conter números.\n");
+                }
+                if(strcmp(nomeLocador, nomemultado) == 1) {
+                    printf("Você tem um multa a ser paga");
+                    return;
                 }
             } while (temNumero(nomeLocador));
             strcpy(locador1, nomeLocador);
@@ -231,6 +247,131 @@ void alugarLivro() {
     getchar();
 }
 
+void devolverLivro() {
+    int escolha;
+    int diasUsados;
+    int valorMulta = 0;
+    listar_livros();
+
+    printf("Escolha o número do livro que deseja devolver: ");
+    scanf("%d", &escolha);
+
+    switch (escolha) {
+        case 1:
+            if(strlen(titulo1) == 0 || locado1 == 0) {   
+                printf("Livro não alugado!\n");
+                break;
+            }
+
+            printf("Quantos dias você usou o livro '%s'? ", titulo1);
+            scanf("%d", &diasUsados);
+            if(diasUsados > diasRestantes1) {
+                printf("Você usou o livro por mais dias do que o permitido! Você deve pagar uma multa.\n");
+              
+                valorMulta = (diasUsados - diasRestantes1) * VALOR_MULTA;
+                printf("Valor da multa: R$ %.2f\n", (float)valorMulta);
+                strcpy(nomemultado, locador1);
+                break;
+            }
+
+             locado1 = 0;
+             printf("Livro '%s' devolvido com sucesso!\n", titulo1);
+            titulo1[0] = '\0';
+            break;
+        case 2:
+            if(strlen(titulo2) == 0 || locado2 == 0) {
+                printf("Livro não alugado!\n");
+                break;
+            }
+
+            printf("Quantos dias você usou o livro '%s'? ", titulo2);
+            scanf("%d", &diasUsados);
+            if(diasUsados > diasRestantes2) {
+                printf("Você usou o livro por mais dias do que o permitido! Você deve pagar uma multa.\n");
+                valorMulta = (diasUsados - diasRestantes1) * VALOR_MULTA;
+                printf("Valor da multa: R$ %.2f\n", (float)valorMulta);
+                strcpy(nomemultado, locador2);
+                break;
+            }
+
+            locado2 = 0;
+            printf("Livro '%s' devolvido com sucesso!\n", titulo2);
+            titulo2[0] = '\0';
+            break;
+
+        case 3:
+            if(strlen(titulo3) == 0 || locado3 == 0) {
+                printf("Livro não alugado!\n");
+                break;
+            }
+
+            printf("Quantos dias você usou o livro '%s'? ", titulo3);
+            scanf("%d", &diasUsados);
+            if(diasUsados > diasRestantes3) {
+                printf("Você usou o livro por mais dias do que o permitido! Você deve pagar uma multa.\n");
+                valorMulta = (diasUsados - diasRestantes1) * VALOR_MULTA;
+                printf("Valor da multa: R$ %.2f\n", (float)valorMulta);
+                strcpy(nomemultado, locador3);
+                break;
+            }
+
+            locado3 = 0;
+            printf("Livro '%s' devolvido com sucesso!\n", titulo3);
+            titulo3[0] = '\0';
+            break;
+
+        case 4:
+            if(strlen(titulo4) == 0 || locado4 == 0) {
+                printf("Livro não alugado!\n");
+                break;
+            }
+
+            printf("Quantos dias você usou o livro '%s'? ", titulo4);
+            scanf("%d", &diasUsados);
+            if(diasUsados > diasRestantes4) {
+                printf("Você usou o livro por mais dias do que o permitido! Você deve pagar uma multa.\n");
+            
+                valorMulta = (diasUsados - diasRestantes1) * VALOR_MULTA;
+                printf("Valor da multa: R$ %.2f\n", (float)valorMulta);
+                strcpy(nomemultado, locador4);
+                break;
+            }
+
+            locado4 = 0;
+            printf("Livro '%s' devolvido com sucesso!\n", titulo4);
+            titulo4[0] = '\0';
+            break;
+
+        case 5:
+            if(strlen(titulo5) == 0 || locado5 == 0) {
+                printf("Livro não alugado!\n");
+                break;
+            }
+
+            printf("Quantos dias você usou o livro '%s'? ", titulo5);
+            scanf("%d", &diasUsados);
+            if(diasUsados > diasRestantes5) {
+                printf("Você usou o livro por mais dias do que o permitido! Você deve pagar uma multa.\n");
+                valorMulta = (diasUsados - diasRestantes1) * VALOR_MULTA;
+                printf("Valor da multa: R$ %.2f\n", (float)valorMulta);
+                strcpy(nomemultado, locador5);
+                break;
+            }
+
+            locado5 = 0;
+            printf("Livro '%s' devolvido com sucesso!\n", titulo5);
+            titulo5[0] = '\0'; // Limpa o título
+            break;
+
+        default:
+            printf("Opção inválida!\n");
+    }
+
+    printf("\nPRESSIONE ENTER PARA VOLTAR AO MENU PRINCIPAL...");
+    getchar();
+    getchar();
+}
+
 
 int main(){
     int opcao;
@@ -258,7 +399,7 @@ int main(){
         alugarLivro();
         break;
     case 4:
-        printf("Não tem a função de devolver livro (galego/natan)");
+        devolverLivro();
         break;
     case 5:
         printf("Não tem função de renovar livro (galego/natan)");
