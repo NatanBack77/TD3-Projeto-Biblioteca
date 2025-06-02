@@ -310,7 +310,6 @@ void alugarLivro() {
     }
     printf("\nPRESSIONE ENTER PARA VOLTAR AO MENU PRINCIPAL...");
     getchar();
-    getchar();
 }
 
 void devolverLivro() {
@@ -547,33 +546,32 @@ int main(){
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
 
-
-    switch (opcao) {
-    case 1:
-        adicionarLivro();
-        break;
-    case 2:
-        listar_livros();
-        break;
-    case 3:
-        alugarLivro();
-        break;
-    case 4:
-        devolverLivro();
-        break;
-    case 5:
-       renovarLivro();
-        break;
-    case 6:
-        pagarmulta();
-        break;
-    case 7:
-    printf("Saindo do sistema...\n");
-        break;   
-    default:
-        printf("Opção inválida!\n");
-    }
-    } while (opcao != 6);
+        switch (opcao) {
+        case 1:
+            adicionarLivro();
+            break;
+        case 2:
+            listar_livros();
+            break;
+        case 3:
+            alugarLivro();
+            break;
+        case 4:
+            devolverLivro();
+            break;
+        case 5:
+            renovarLivro();
+            break;
+        case 6:
+            pagarmulta();
+            break;
+        case 7:
+            printf("Saindo do sistema...\n");
+            return 0;
+        default:
+            printf("Opção inválida!\n");
+        }
+    } while (1);
 
    return 0;  
 }
