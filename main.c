@@ -421,7 +421,6 @@ void devolverLivro() {
 
     printf("\nPRESSIONE ENTER PARA VOLTAR AO MENU PRINCIPAL...");
     getchar();
-    getchar();
 }
 
 
@@ -527,7 +526,6 @@ void renovarLivro() {
             printf("Opção inválida!\n");
     }
     printf("\nPRESSIONE ENTER PARA VOLTAR AO MENU PRINCIPAL...");
-    getchar();
     getchar();
 }
 
