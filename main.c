@@ -227,8 +227,7 @@ void alugarLivro() {
     }
 
     printf("\nPRESSIONE ENTER PARA VOLTAR AO MENU PRINCIPAL...");
-    getchar();
-    getchar();
+    getchar(); 
 }
 
 
